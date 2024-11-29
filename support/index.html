@@ -88,6 +88,30 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </section>
         
+        <aside id="sidebar">
+            <h2>サイドバー</h2>
+            <section class="search-container">
+                <h3>記事の検索</h3>
+                <input type="text" id="search-input" placeholder="記事の検索">
+                <button id="search-button">検索</button>
+                <div id="search-results">
+                <noscript>JavaScriptがオフの様です。検索機能が利用できません。</noscript>
+            </section>
+            <nav id="toc">
+                <h3>目次</h3>
+                <ul>
+                    <li><a href="#ii">重要情報</a></li>
+                    <li><a href="#tli">最新情報</a></li>
+                    <li><a href="#recommendation">おすすめ</a></li>
+                    <li><a href="#SNS">SNS</a></li>
+                </ul>
+            </nav>
+            <section id="about">
+                <h3>その他の最新情報</h3>
+                <p>2024-11-27にサイトを公開しました。</p>
+            </section>
+        </aside>
+
         <div id="cookie-popup" class="cookie-popup" style="display: none;">
             <p>このサイトでは、Xのフォローボタンを含む外部サービスを利用するためにCookieを使用しています。このままご利用を続ける場合、Cookieの使用に同意したものとみなされます。
                 <a href="/support/policy.html#cookie-policy">詳細はこちら</a>
@@ -105,6 +129,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     -->
     <script defer src="/Programs/js/footer.js"></script>
     <script defer src="/Programs/js/header.js"></script>
+    <script defer src="/Programs/js/sidebar.js"></script>
     <script defer src="/Programs/js/sokutei.js"></script>
     <script defer src="/Programs/js/UI.js"></script>
 </body>
