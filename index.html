@@ -45,6 +45,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
     <header id="header-placeholder"></header>
 
     <main id="main">
+        <article class="main-content">
         <noscript>
             <p>このページはJavaScriptが使用されています。JavaScriptをオンにしてご利用ください。</p>
         </noscript>
@@ -224,6 +225,86 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
             <div class="pin right"></div>
             <p>🌟 新着イベント情報：根室市でイベントが開催されます！<a href="events/index.html">詳細はこちら</a>をクリック！</p>
         </section>
+    </article>
+
+        <aside id="sidebar">
+            <h2>サイドバー</h2>
+            <section class="search-container">
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const searchButton = document.getElementById('search-button');
+                    const searchInput = document.getElementById('search-input');
+                    const searchResults = document.getElementById('search-results');
+                  
+                    if (!searchResults) {
+                      return;
+                    }
+                  
+                    searchButton.addEventListener('click', function() {
+                      const query = searchInput.value.trim().toLowerCase();
+                      const articles = document.querySelectorAll('main h2'); 
+                  
+                      searchResults.innerHTML = '';
+                  
+                      if (!query) {
+                        searchResults.innerHTML = '<p class="no-results">検索クエリを入力してください。</p>';
+                        return;
+                      }
+                  
+                      let foundResults = false;
+                  
+                      articles.forEach(article => {
+                        const title = article.textContent.toLowerCase();
+                        const content = article.nextElementSibling ? article.nextElementSibling.textContent.toLowerCase() : '';
+                        const section = article.closest('section');
+                  
+                        if (section) {
+                          const sectionId = section.id ? section.id : '';
+                          const linkHref = sectionId ? `#${sectionId}` : '';
+                          const sectionLink = sectionId ? `<a href="${linkHref}">移動する</a>` : '';
+                  
+                          if (title.includes(query) || content.includes(query)) {
+                            foundResults = true;
+                            const resultItem = document.createElement('div');
+                            resultItem.classList.add('result-item');
+                  
+                            resultItem.innerHTML = `
+                              <h2>${article.innerHTML}</h2>
+                              <p>${content}</p>
+                              ${sectionLink} 
+                            `;
+                  
+                            searchResults.appendChild(resultItem);
+                          }
+                        }
+                      });
+                  
+                      if (!foundResults) {
+                        searchResults.innerHTML = '<p class="no-results">該当する結果が見つかりませんでした。</p>';
+                      }
+                    });
+                  });
+                  </script>
+                <h3>記事の検索</h3>
+                <input type="text" id="search-input" placeholder="記事の検索">
+                <button id="search-button">検索</button>
+                <div id="search-results">
+                <noscript>JavaScriptがオフの様です。検索機能が利用できません。</noscript>
+            </section>
+            <nav id="toc">
+                <h3>目次</h3>
+                <ul>
+                    <li><a href="#ii">重要情報</a></li>
+                    <li><a href="#tli">最新情報</a></li>
+                    <li><a href="#recommendation">おすすめ</a></li>
+                    <li><a href="#SNS">SNS</a></li>
+                </ul>
+            </nav>
+            <section id="about">
+                <h3>その他の最新情報</h3>
+                <p>2024-11-27にサイトを公開しました。</p>
+            </section>
+        </aside>
 
         <div id="cookie-popup" class="cookie-popup" style="display: none;">
             <p>このサイトでは、Cookieを使用しています。このままご利用を続ける場合、Cookieの使用に同意したものとみなされます。
