@@ -25,6 +25,7 @@ function loadFooter() {
                   <li><a href="/support/index.html">お問い合わせ</a></li>
                   <li><a href="/support/policy.html">プライバシーポリシー</a></li>
                   <li><a href="/sitemap.html">サイトマップ</a></li>
+                  <li><a href="/support/faq.html">FAQ</a></li>
               </ul>
       </nav>
       <p>&copy; 2024 根室市観光応援ガイド All Rights Reserved.</p>
